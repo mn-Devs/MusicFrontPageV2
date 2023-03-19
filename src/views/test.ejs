@@ -1,0 +1,34 @@
+<form id="form">
+    <input type="file" id="imageFileInput" accept="image/png">
+    <input type="submit">Send to API</input>
+  </form>
+  
+  <%- include('_script'); %>
+  <script>
+    //add event listner to form
+    document.getElementById('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const fileInput = document.getElementById('imageFileInput');
+      const file = fileInput.files[0];
+    
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+    
+      reader.onload = function() {
+        const base64 = reader.result.split(',')[1];
+      
+        const apiEndpoint = `${url}/upload`;
+        fetch(apiEndpoint, {
+          method: 'POST',
+          headers: jsonHeader,
+          body: JSON.stringify({ image: base64 })
+        })
+        .then(response => {
+          if (!response.ok) {
+            // handle error
+          }
+        });
+      };
+    });
+  </script>
+  

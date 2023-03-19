@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="285.75mm"
+   height="508mm"
+   viewBox="0 0 285.75 508"
+   version="1.1"
+   id="svg5"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2">
+    <clipPath
+       id="a">
+      <path
+         data-name="Rectangle 4"
+         transform="translate(0,-0.001)"
+         fill="none"
+         d="M 0,0 H 182 V 37.001 H 0 Z"
+         id="path1122" />
+    </clipPath>
+  </defs>
+  <g
+     id="layer1"
+     transform="translate(-279.3434,1839.7287)">
+    <g
+       id="g1197"
+       transform="matrix(0.2636925,0,0,0.31546298,407.93062,-1238.4233)"
+       style="stroke-width:3.46719">
+      <rect
+         style="fill:#021926;fill-opacity:1;stroke-width:0.917355"
+         id="rect846"
+         width="1083.6486"
+         height="402.58292"
+         x="-487.64078"
+         y="-1100.9386" />
+      <rect
+         style="fill:#a0e8a8;fill-opacity:1;stroke-width:0.917355"
+         id="rect928"
+         width="1083.6486"
+         height="402.58292"
+         x="-487.64078"
+         y="-1906.1044" />
+      <rect
+         style="fill:#042941;fill-opacity:1;stroke-width:0.917355"
+         id="rect1050"
+         width="1083.6486"
+         height="402.58292"
+         x="-487.64078"
+         y="-1503.5215" />
+      <rect
+         style="fill:#001021;fill-opacity:1;stroke-width:0.917355"
+         id="rect1088"
+         width="1083.6486"
+         height="402.58292"
+         x="-487.64078"
+         y="-698.35571" />
+    </g>
+  </g>
+</svg>

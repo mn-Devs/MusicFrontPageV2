@@ -1,0 +1,89 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 auto;
+}
+
+header{
+    background-color: #f2f2f2;
+    padding: 5px 15px ;
+    width: calc(100% - 30px);
+    border-bottom: 1px solid black;
+    display: inline-block;
+}
+
+header h1, header a{
+    float: left;
+    text-decoration: none;
+    color: black;
+    margin-right: 20px;
+
+}
+
+header a{
+    margin-top: 29px;
+    font-size: 18px;
+}
+#auth-header{
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 35px;
+}
+.auth-form{
+    width: 250px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 10px;
+    background-color: #f2f2f2;
+    border: 1px solid black;
+    padding: 25px 30px;
+}
+
+
+.auth-form input, #addlink-form input{
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.auth-form input[type="submit"], #addlink-form input[type="submit"]{
+    width: calc(100% - 2px);
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+.addlink{
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 35px;
+    width: 50%;
+    margin: 0 auto;
+}
+
+/*error handeling */
+
+#main-error-div{
+    top: 0;
+    right: 0;
+    position: fixed;
+    width: 50%;
+}
+#main-error-div div{
+    width: calc(100% - 40px);
+    background-color: white;
+    padding: 12px 20px;
+    border-bottom: 1px solid black;
+}
+
+#main-error-div p {
+    color: white;
+    font-weight: bold;
+    padding: 8px;
+    margin: 0px;
+}
+
