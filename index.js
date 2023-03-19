@@ -12,6 +12,8 @@ const { auth } = require('./src/req/comp/auth');
 const { addlink } = require('./src/req/addlink');
 const { getlink } = require('./src/req/getlink');
 const fs = require('fs');
+const { addartist } = require('./src/req/addartist');
+const { getartist } = require('./src/req/getartist');
 app.set('view engine', 'ejs');
 app.set('views', './src/views')
 app.use(express.static(path.join(__dirname, 'src/public')));
@@ -50,6 +52,19 @@ app.get('/', (req, res) => {
   }else{
     res.render('index', {
       title: `Admin | ${siteName}`,
+      name: siteName,
+      username: req.cookies.auth.split("-")[0],
+  });
+  }
+});
+
+
+app.get('/artist', (req, res) => {
+  if(!auth(req.cookies.auth).succes){
+    res.redirect('/login');
+  }else{
+    res.render('artist', {
+      title: `Artist | ${siteName}`,
       name: siteName,
       username: req.cookies.auth.split("-")[0],
   });
@@ -114,6 +129,13 @@ app.post(`/${version}/addlink`, (req, res) => {
   res.json(addlink(req));
 });
 
+
+app.post(`/${version}/addartist`, (req, res) => {
+  res.json(addartist(req));
+});
+app.post(`/${version}/getartist`, (req, res) => {
+  res.json(getartist(req));
+});
 
 
 

@@ -1,6 +1,17 @@
 <form id="form">
     <input type="file" id="imageFileInput" accept="image/png">
-    <input type="submit">Send to API</input>
+    <input type="text" name="title" id="title" placeholder="Title">
+    <input type="text" name="amazonmusic" id="amazonmusic" placeholder="Amazon Music">
+    <input type="text" name="applemusic" id="applemusic" placeholder="Apple Music">
+    <input type="text" name="audius" id="audius" placeholder="Audius">
+    <input type="text" name="beatport" id="beatport" placeholder="Beatport">
+    <input type="text" name="deezer" id="deezer" placeholder="Deezer">
+    <input type="text" name="itunes" id="itunes" placeholder="iTunes">
+    <input type="text" name="soundcloud" id="soundcloud" placeholder="Soundcloud">
+    <input type="text" name="spotify" id="spotify" placeholder="Spotify">
+    <input type="text" name="tidal" id="tidal" placeholder="Tidal">
+    <input type="text" name="youtube" id="youtube" placeholder="YouTube">
+    <input type="submit" value="send">
   </form>
   
   <%- include('_script'); %>
@@ -10,10 +21,8 @@
       e.preventDefault();
       const fileInput = document.getElementById('imageFileInput');
       const file = fileInput.files[0];
-    
       const reader = new FileReader();
       reader.readAsDataURL(file);
-    
       reader.onload = function() {
         const base64 = reader.result.split(',')[1];
       
