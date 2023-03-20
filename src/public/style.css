@@ -33,19 +33,18 @@ header a{
     margin-bottom: 35px;
 }
 .inner-div{
-    text-align: center;
-    margin-top: 15px;
-    margin-bottom: 35px;
     width: 50%;
     margin: 0 auto;
     display: block;
 }
-.inner-div form{
+.inner-div form, .list-div {
     width: calc(100% - 62px);
     border-radius: 10px;
     background-color: #f2f2f2;
     border: 1px solid black;
     padding: 25px 30px;
+    margin-top: 15px;
+    margin-bottom: 35px;
 }
 
 
@@ -92,5 +91,15 @@ header a{
     font-weight: bold;
     padding: 8px;
     margin: 0px;
+}
+
+.list-div div{
+    width: calc(100% - 40px);
+    background-color: white;
+    padding: 12px 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: left;
+    margin-bottom: 25px;
 }
 

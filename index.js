@@ -14,6 +14,7 @@ const { getlink } = require('./src/req/getlink');
 const fs = require('fs');
 const { addartist } = require('./src/req/addartist');
 const { getartist } = require('./src/req/getartist');
+const { removeartist } = require('./src/req/removeartist');
 app.set('view engine', 'ejs');
 app.set('views', './src/views')
 app.use(express.static(path.join(__dirname, 'src/public')));
@@ -136,6 +137,10 @@ app.post(`/${version}/addartist`, (req, res) => {
 app.post(`/${version}/getartist`, (req, res) => {
   res.json(getartist(req));
 });
+app.post(`/${version}/removeartist`, (req, res) => {
+  res.json(removeartist(req));
+});
+
 
 
 

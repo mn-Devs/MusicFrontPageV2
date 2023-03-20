@@ -8,7 +8,7 @@ const getartist = (req) => {
     return {"error": "you are not logged in"};
 }else{
     const query = mysql(`SELECT * FROM artists`);
-    return query;
+    return {"artist": query};
 }
 
 }
