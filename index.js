@@ -3,18 +3,18 @@ const path = require('path');
 const app = express();
 const bodyParser = require("body-parser");
 const version = "v1";
+const fs = require('fs');
+const siteName = 'MusicFrontPage';
+const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const { register } = require('./src/req/register');
 const { login } = require('./src/req/login');
-const siteName = 'MusicFrontPage';
-const cookieParser = require('cookie-parser');
 const { auth } = require('./src/req/comp/auth');
-const { addlink } = require('./src/req/addlink');
-const { getlink } = require('./src/req/getlink');
-const fs = require('fs');
+const { getlinklocal } = require('./src/req/getlinklocal');
 const { addartist } = require('./src/req/addartist');
 const { getartist } = require('./src/req/getartist');
 const { removeartist } = require('./src/req/removeartist');
+const { addlink } = require('./src/req/addlink');
 app.set('view engine', 'ejs');
 app.set('views', './src/views')
 app.use(express.static(path.join(__dirname, 'src/public')));
@@ -23,29 +23,39 @@ app.use(cors())
 app.use(cookieParser());
 /*frontend*/
 app.get('/l/:tagId', function(req, res) {
-
-    const links = getlink(req.params.tagId)
-    res.send();
-
-    res.render('link', {
-      title: `Test | ${siteName}`,
-      name: siteName,
-      youtube: links.youtube,
-      spotify: links.spotify,
-      deezer: links.deezer,
-      itunes: links.itunes,
-      soundcloud: links.soundcloud,
-      tidal: links.tidal,
-      amazonmusic: links.amazonmusic,
-      applemusic: links.applemusic,
-      audius: links.audius,
-      beatport: links.beatport,
-      title: links.title,
-      artist: links.artist,
-      image: links.image,
+  const links = getlinklocal(req.params.tagId);
+  console.log(links)
+  if(!links.error){
+    const songtitle = `${links.artist.artistname} - ${links.objects.songtitle}`
+     res.render('link', {
+      title: `Stream now! ${songtitle}`,
+      youtube: links.objects.youtube,
+      spotify: links.objects.spotify,
+      deezer: links.objects.deezer,
+      itunes: links.objects.itunes,
+      soundcloud: links.objects.soundcloud,
+      tidal: links.objects.tidal,
+      amazonmusic: links.objects.amazonmusic,
+      applemusic: links.objects.applemusic,
+      audius: links.objects.audius,
+      beatport: links.objects.beatport,
+      linktitle: songtitle,
+      artist: links.objects.artist,
+      image: links.objects.image,
   });
+  }else{
+    res.redirect('/404');
+  }
 
 });
+
+app.get('/404', (req, res) => {
+  res.render('404', {
+    title: `404 | ${siteName}`,
+    name: siteName,
+  });
+});
+
 
 app.get('/', (req, res) => {
   if(!auth(req.cookies.auth).succes){
@@ -145,27 +155,7 @@ app.post(`/${version}/removeartist`, (req, res) => {
 
 
 app.post(`/${version}/upload`, (req, res) => {
-  const imageBase64 = req.body.image;
-  const cdnPath = path.join(__dirname,'src', 'public', 'cdn');
-  if (!imageBase64) {
-    res.status(400).json({ error: 'Image data not provided' });
-    return;
-  }
-
-  // Remove the data URL prefix and create a buffer from the base64-encoded image data
-  const imageBuffer = Buffer.from(imageBase64.replace(/^data:image\/\w+;base64,/, ''), 'base64');
-
-  // Generate a unique file name and save the image buffer to a file in the CDN directory
-  const fileName = `image_${Date.now()}.png`;
-  const filePath = path.join(cdnPath, fileName);
-  fs.writeFile(filePath, imageBuffer, (error) => {
-    if (error) {
-      console.error(error);
-      res.status(500).json({ error: 'Failed to save image' });
-    } else {
-      res.json({ success: true });
-    }
-  });
+ 
 });
 
 

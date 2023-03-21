@@ -1,5 +1,4 @@
 <form id="form">
-    <input type="file" id="imageFileInput" accept="image/png">
     <input type="text" name="title" id="title" placeholder="Title">
     <input type="text" name="amazonmusic" id="amazonmusic" placeholder="Amazon Music">
     <input type="text" name="applemusic" id="applemusic" placeholder="Apple Music">
@@ -19,12 +18,7 @@
     //add event listner to form
     document.getElementById('form').addEventListener('submit', function(e) {
       e.preventDefault();
-      const fileInput = document.getElementById('imageFileInput');
-      const file = fileInput.files[0];
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = function() {
-        const base64 = reader.result.split(',')[1];
+     
       
         const apiEndpoint = `${url}/upload`;
         fetch(apiEndpoint, {
