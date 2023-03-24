@@ -65,6 +65,7 @@ app.get('/', (req, res) => {
       title: `Admin | ${siteName}`,
       name: siteName,
       username: req.cookies.auth.split("-")[0],
+      script: `addlink.js`
   });
   }
 });
@@ -78,6 +79,7 @@ app.get('/artist', (req, res) => {
       title: `Artist | ${siteName}`,
       name: siteName,
       username: req.cookies.auth.split("-")[0],
+      script: `artist.js`
   });
   }
 });
@@ -100,6 +102,7 @@ app.get('/test', (req, res) => {
     res.render('logout', {
       title: `Logging out | ${siteName}`,
       name: siteName,
+      script: ``,
   });
 });
 
@@ -111,6 +114,7 @@ app.get('/test', (req, res) => {
       res.render('login', {
         title: `Login | ${siteName}`,
         name: siteName,
+        script: `login.js`
       });
     }else{
       res.redirect('/');  
@@ -121,6 +125,7 @@ app.get('/test', (req, res) => {
     res.render('register', {
       title: `Register | ${siteName}`,
       name: siteName,
+      script: `register.js`
     });
   });
 

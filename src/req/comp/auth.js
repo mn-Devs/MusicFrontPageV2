@@ -11,12 +11,11 @@ const auth = (req) =>{
     const password = auth[1]
 
     var query = mysql(`SELECT * FROM users WHERE username = "${username}" AND password = "${password}"`)[0];
-
     if(!query){
         return {"error": "cant login"}
 
     }else{
-        return {"succes": "login-succesfull", "auth": req}
+        return {"succes": "login-succesfull", "auth": req, "id": query.ID}
 
     }
     
