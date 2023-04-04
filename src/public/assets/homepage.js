@@ -1,5 +1,7 @@
 const handleaddlink = (response) => {
-    if(!response.success) {
+    console.log(response);
+    resp = JSON.parse(response);
+    if(!resp.success) {
         error("could not add link", "red");
     }else{
         document.getElementById('title').value = '';
@@ -69,33 +71,55 @@ document.getElementById('addlink-form').addEventListener('submit', (e) => {
 });
 
 
+/*ophalen van linkjes*/
+const handlegetlink = (res) => {
+    console.log(res)
+    document.getElementById("link-list").innerHTML = "";
 
-const handlegetartist = (res) => {
-    document.getElementById("select-artist").innerHTML = "";
     const response = JSON.parse(res);
+    console.log(response);
     response.artist.forEach(item => {
-        const newOption = document.createElement("option");
-        newOption.innerHTML = item.artistname;
-        newOption.value = item.ID;
-        document.getElementById("select-artist").appendChild(newOption);
-    });
-}
         
-const getartist = () => {
+        const newDiv = document.createElement("div");
+        const newFirstname = document.createElement("p");
+        const newLastname = document.createElement("p");
+        const newArtistname = document.createElement("h2");
+        const newDelete = document.createElement("button");
+        newFirstname.innerHTML = item.firstname;
+        newLastname.innerHTML = item.lastname;
+        newArtistname.innerHTML = item.artistname;
+        newDelete.innerHTML = "Delete";
+        newDelete.className = "remove-artist-btn";
+        newDelete.id = item.ID;
+        newDiv.appendChild(newArtistname)
+        newDiv.appendChild(newFirstname)
+        newDiv.appendChild(newLastname)
+        newDiv.appendChild(newDelete)
+        document.getElementById("link-list").appendChild(newDiv);
+    });
+    const divs = document.querySelectorAll('.remove-link-btn');
+    divs.forEach(el => el.addEventListener('click', event => {
+        removeartist(event.target.id);
+    }));
+
+}
+
+const getlink = () => {
     const auth = document.cookie.split("=")[1].replace(';', '');;
     var raw = JSON.stringify({
         "auth": auth,
-     });
+    });
     var requestOptions = {
         method: 'POST',
         headers: jsonHeader,
         body: raw,
         redirect: 'follow',
     };
-    fetch(`${url}/getartist`, requestOptions)
+    fetch(`${url}/getlink`, requestOptions)
         .then(response => response.text())
-        .then(result => handlegetartist(result))
-    };
+        .then(result => handlegetlink(result))
+
+};
 
 
-window.onload = getartist();
+window.onload = getlink();

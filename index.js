@@ -7,6 +7,7 @@ const fs = require('fs');
 const siteName = 'MusicFrontPage';
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+const fileUpload = require("express-fileupload")
 const { register } = require('./src/req/register');
 const { login } = require('./src/req/login');
 const { auth } = require('./src/req/comp/auth');
@@ -15,12 +16,15 @@ const { addartist } = require('./src/req/addartist');
 const { getartist } = require('./src/req/getartist');
 const { removeartist } = require('./src/req/removeartist');
 const { addlink } = require('./src/req/addlink');
+const { testupload } = require('./src/req/testupload');
+const { getlink } = require('./src/req/getlinks');
 app.set('view engine', 'ejs');
 app.set('views', './src/views')
 app.use(express.static(path.join(__dirname, 'src/public')));
 app.use(bodyParser.json());
 app.use(cors())
 app.use(cookieParser());
+app.use(fileUpload())
 /*frontend*/
 app.get('/l/:tagId', function(req, res) {
   const links = getlinklocal(req.params.tagId);
@@ -65,7 +69,7 @@ app.get('/', (req, res) => {
       title: `Admin | ${siteName}`,
       name: siteName,
       username: req.cookies.auth.split("-")[0],
-      script: `addlink.js`
+      script: 'homepage.js',
   });
   }
 });
@@ -104,6 +108,15 @@ app.get('/test', (req, res) => {
       name: siteName,
       script: ``,
   });
+});
+
+app.get('/links', (req, res) => {
+
+  res.render('links', {
+    title: `Links | ${siteName}`,
+    name: siteName,
+    script: `links.js`,
+});
 });
 
 
@@ -145,6 +158,10 @@ app.post(`/${version}/addlink`, (req, res) => {
   res.json(addlink(req));
 });
 
+app.post(`/${version}/getlink`, (req, res) => {
+  res.json(getlink(req));
+});
+
 
 app.post(`/${version}/addartist`, (req, res) => {
   res.json(addartist(req));
@@ -159,9 +176,8 @@ app.post(`/${version}/removeartist`, (req, res) => {
 
 
 
-app.post(`/${version}/upload`, (req, res) => {
- 
-});
+app.post("/test", testupload )
+
 
 
 

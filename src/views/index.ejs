@@ -7,11 +7,12 @@
 
 
     <div class="inner-div">
-        <form id="addlink-form">
+        <form id="addlink-form" action="/v1/addlink" method="post" enctype="multipart/form-data"> 
+        
             <h1>Add a link</h1>
             <input type="text" name="title" id="title" placeholder="Title">
-            <select id="select-artist"></select>
-            <input type="file" id="imageFileInput" accept="image/png">
+            <select id="select-artist" name="artistid"></select>
+            <input type="file" name="img" accept="image/png">
             <input type="text" name="amazonmusic" id="amazonmusic" placeholder="Amazon Music">
             <input type="text" name="applemusic" id="applemusic" placeholder="Apple Music">
             <input type="text" name="audius" id="audius" placeholder="Audius">
@@ -26,6 +27,49 @@
         </form>
     </div>
 
+    <div class="inner-div">
+        <h1>All links</h1>
+        <div class="list-div" id="link-list">
+
+        </div>
+    </div>
+
 </body>
 
 <%- include('_script'); %>
+
+<script>
+    const handlegetartist = (res) => {
+    document.getElementById("select-artist").innerHTML = "";
+    const response = JSON.parse(res);
+    response.artist.forEach(item => {
+        const newOption = document.createElement("option");
+        newOption.innerHTML = item.artistname;
+        newOption.value = item.ID;
+        document.getElementById("select-artist").appendChild(newOption);
+    });
+}
+        
+const getartist = () => {
+    const auth = document.cookie.split("=")[1].replace(';', '');;
+    var raw = JSON.stringify({
+        "auth": auth,
+     });
+    var requestOptions = {
+        method: 'POST',
+        headers: jsonHeader,
+        body: raw,
+        redirect: 'follow',
+    };
+    fetch(`/v1/getartist`, requestOptions)
+        .then(response => response.text())
+        .then(result => handlegetartist(result))
+    };
+
+
+window.onload = getartist();
+</script>
+
+
+
+
