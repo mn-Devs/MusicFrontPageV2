@@ -1,12 +1,14 @@
 <%- include('_head'); %>
 
 <body>
+    <div class="wrapper-div"></div>
+    <div class="inner-div" id="link-inner-div">
     <h1 id="welcome"><%= linktitle %></h1>
+    <img id="cover-image" src="<%= image %>">
+    
 
-
-    <div class="inner-div">
+ 
         <div class="link-objects">
-        <img src="<%= image %>">
             <a href="<%= youtube %>">
                 <div class="link-object">
                     </div>
@@ -58,3 +60,22 @@
                                                 </div>
     </div> 
 </body>
+
+
+<style>
+
+   .wrapper-div{
+    filter: blur(20px);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -1;
+    background-image: url('<%= image %>');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    scale: 1.2;
+
+    }
+</style>

@@ -99,6 +99,11 @@ header a{
     margin: 0 auto;
 }
 
+.list-div img{
+    width: 100%;
+    margin: 15px 0px;
+}
+
 /*error handeling */
 
 #main-error-div{
@@ -147,6 +152,16 @@ header a{
     text-align: left;
   }
 
+
+  #cover-image{
+    width: 50%;
+  }
+
+  #link-inner-div{
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 25px;
+  }
 
 
   @media screen and (max-width: 578px) {

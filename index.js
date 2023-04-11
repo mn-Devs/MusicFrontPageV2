@@ -61,19 +61,39 @@ app.get('/404', (req, res) => {
   });
 });
 
-app.get('/update/:tagId', (req, res) => {
-
-
+app.get('/update/:tagId', function(req, res) {
   if(!auth(req.cookies.auth).succes){
     res.redirect('/login');
   }else{
-    const links = getlinklocal(req.params.tagId);
-    res.render('404', {
-      title: `404 | ${siteName}`,
+  const links = getlinklocal(req.params.tagId);
+  console.log(links)
+  if(!links.error){
+    const songtitle = `${links.artist.artistname} - ${links.objects.songtitle}`
+     res.render('update', {
+      title: `Admin | ${siteName}`,
       name: siteName,
-    });
-  }
+      username: req.cookies.auth.split("-")[0],
+      script: 'update.js',
+      youtube: links.objects.youtube,
+      spotify: links.objects.spotify,
+      deezer: links.objects.deezer,
+      itunes: links.objects.itunes,
+      soundcloud: links.objects.soundcloud,
+      tidal: links.objects.tidal,
+      amazonmusic: links.objects.amazonmusic,
+      applemusic: links.objects.applemusic,
+      audius: links.objects.audius,
+      beatport: links.objects.beatport,
+      linktitle: songtitle,
+      artist: links.objects.artist,
+      image: `/cdn/${links.objects.imagename}`,
   });
+
+  }else{
+    res.redirect('/404');
+  }
+  }
+});
 
 
 
