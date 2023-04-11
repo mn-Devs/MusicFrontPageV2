@@ -32,22 +32,27 @@ const handlegetlink = (res) => {
         
         const newDiv = document.createElement("div");
         const newSongtitle = document.createElement("h2");
-        const newLastname = document.createElement("p");
+        const newImage = document.createElement("img");
         const newItemtoken = document.createElement("a");
         const newDelete = document.createElement("button");
+        const newEdit = document.createElement("a");
         newSongtitle.innerHTML = item.songtitle;
-        newLastname.innerHTML = item.lastname;
+        newImage.src = `/cdn/${item.imagename}`;
         newItemtoken.innerHTML = item.itemtoken;
         newItemtoken.href = `/l/${item.itemtoken}`;
         newItemtoken.target = "_blank";
         newDelete.innerHTML = "Delete";
         newDelete.className = "remove-link-btn";
+        newEdit.href = `/update/${item.itemtoken}`;
+        newEdit.className = "edit-link-btn";
+        newEdit.innerHTML = "Edit";
         newDelete.id = item.ID;
         newDiv.appendChild(newSongtitle)
 
         newDiv.appendChild(newItemtoken)
-        newDiv.appendChild(newLastname)
+        newDiv.appendChild(newImage)
         newDiv.appendChild(newDelete)
+        newDiv.appendChild(newEdit)
         document.getElementById("link-list").appendChild(newDiv);
     });
     const divs = document.querySelectorAll('.remove-link-btn');

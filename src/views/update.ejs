@@ -1,0 +1,38 @@
+<%- include('_head'); %>
+<%- include('_header'); %>
+
+<body>
+
+
+
+
+    <div class="inner-div">
+        <form id="addlink-form" action="/v1/addlink" method="post" enctype="multipart/form-data"> 
+        
+            <h1>Add a link</h1>
+            <input type="text" name="title" id="title" placeholder="Title">
+            <select id="select-artist" name="artistid"></select>
+            <input type="file" name="img" accept="image/png">
+            <input type="text" name="amazonmusic" id="amazonmusic" placeholder="Amazon Music">
+            <input type="text" name="applemusic" id="applemusic" placeholder="Apple Music">
+            <input type="text" name="audius" id="audius" placeholder="Audius">
+            <input type="text" name="beatport" id="beatport" placeholder="Beatport">
+            <input type="text" name="deezer" id="deezer" placeholder="Deezer">
+            <input type="text" name="itunes" id="itunes" placeholder="iTunes">
+            <input type="text" name="soundcloud" id="soundcloud" placeholder="Soundcloud">
+            <input type="text" name="spotify" id="spotify" placeholder="Spotify">
+            <input type="text" name="tidal" id="tidal" placeholder="Tidal">
+            <input type="text" name="youtube" id="youtube" placeholder="YouTube">
+            <input type="submit" value="Save">
+        </form>
+    </div>
+
+
+
+</body>
+
+<%- include('_script'); %>
+
+
+
+

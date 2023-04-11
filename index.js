@@ -61,6 +61,21 @@ app.get('/404', (req, res) => {
   });
 });
 
+app.get('/update/:tagId', (req, res) => {
+
+
+  if(!auth(req.cookies.auth).succes){
+    res.redirect('/login');
+  }else{
+    const links = getlinklocal(req.params.tagId);
+    res.render('404', {
+      title: `404 | ${siteName}`,
+      name: siteName,
+    });
+  }
+  });
+
+
 
 app.get('/', (req, res) => {
   if(!auth(req.cookies.auth).succes){

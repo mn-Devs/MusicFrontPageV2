@@ -12,6 +12,19 @@ body{
     width: calc(100%);
     margin-bottom: 15px;
 }
+.edit-link-btn{
+    background-color: #ff9800;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    width: calc(100% - 20px);
+    margin-bottom: 15px;
+    display: block;
+}
 header{
     background-color: #f2f2f2;
     padding: 5px 15px ;
@@ -19,7 +32,12 @@ header{
     border-bottom: 1px solid black;
     display: inline-block;
 }
-
+header img{
+    margin-top: 15px;
+    height: 48px;
+    float: left;
+    margin-right: 16px;
+}
 header h1, header a{
     float: left;
     text-decoration: none;
@@ -30,7 +48,6 @@ header h1, header a{
 #welcome{
     text-align: center;
 }
-
 
 header a{
     margin-top: 29px;
@@ -56,12 +73,14 @@ header a{
     margin-bottom: 35px;
 }
 
-
+#login-form input[type="text"], #login-form input[type="password"]{
+    width: calc(100% - 22px);
+}
 .inner-div form input, .inner-div select{
     padding: 10px;
     border: 1px solid black;
     border-radius: 5px;
-    width: calc(100% - 22px);
+    width: 100%;
     background-color: white;
     margin-bottom: 15px;
 }
@@ -127,4 +146,18 @@ header a{
     display: inline-block;
     text-align: left;
   }
+
+
+
+  @media screen and (max-width: 578px) {
+    .inner-div{
+        width: 90%;
+    }
+
+    header h1{
+        display: none;
+    }
+  }
+    
+
 
