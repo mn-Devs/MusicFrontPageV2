@@ -17,9 +17,12 @@ const addlink = (req) => {
     }else{
         console.log(req.files)
         const filetype = req.files.img.mimetype.split(`/`)[1]
-        fs.writeFileSync("/home/maurice/Documents/Github/MusicFrontPageV2/src/public/cdn/", `${token}.${filetype}`, req.files.img.data)
+        const newpath = path.resolve(__dirname).replace("req", "public/cdn/")
+        const filename = `${token}.${filetype}`
+        fs.writeFileSync(`${newpath}${filename}`, req.files.img.data)
 
-        mysql(`INSERT INTO link (songTitle, artistID, amazonmusic, applemusic, audius, beatport, deezer, itunes, soundcloud, spotify, tidal, youtube, itemtoken, fromuserid) VALUES ("${title}", "${artistid}", "${amazonmusic}", "${applemusic}", "${audius}", "${beatport}", "${deezer}", "${itunes}", "${soundcloud}", "${spotify}", "${tidal}", "${youtube}", "${token}", "${fromuserid}");`);
+
+        mysql(`INSERT INTO link (songTitle, artistID, amazonmusic, applemusic, audius, beatport, deezer, itunes, soundcloud, spotify, tidal, youtube, itemtoken,imagename, fromuserid) VALUES ("${title}", "${artistid}", "${amazonmusic}", "${applemusic}", "${audius}", "${beatport}", "${deezer}", "${itunes}", "${soundcloud}", "${spotify}", "${tidal}", "${youtube}", "${token}","${filename}", "${fromuserid}");`);
         return { "success": "added link" };
     }
 

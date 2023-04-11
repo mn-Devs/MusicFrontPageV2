@@ -18,6 +18,7 @@ const { removeartist } = require('./src/req/removeartist');
 const { addlink } = require('./src/req/addlink');
 const { testupload } = require('./src/req/testupload');
 const { getlink } = require('./src/req/getlinks');
+const { removelink } = require('./src/req/removelink');
 app.set('view engine', 'ejs');
 app.set('views', './src/views')
 app.use(express.static(path.join(__dirname, 'src/public')));
@@ -45,7 +46,7 @@ app.get('/l/:tagId', function(req, res) {
       beatport: links.objects.beatport,
       linktitle: songtitle,
       artist: links.objects.artist,
-      image: links.objects.image,
+      image: `/cdn/${links.objects.imagename}`,
   });
   }else{
     res.redirect('/404');
@@ -160,6 +161,10 @@ app.post(`/${version}/addlink`, (req, res) => {
 
 app.post(`/${version}/getlink`, (req, res) => {
   res.json(getlink(req));
+});
+
+app.post(`/${version}/removelink`, (req, res) => {
+  res.json(removelink(req));
 });
 
 

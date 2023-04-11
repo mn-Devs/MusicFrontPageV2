@@ -2,7 +2,16 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     margin: 0 auto;
 }
-
+.remove-artist-btn, .remove-link-btn{
+    background-color: #f44336;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: calc(100%);
+    margin-bottom: 15px;
+}
 header{
     background-color: #f2f2f2;
     padding: 5px 15px ;
@@ -102,4 +111,20 @@ header a{
     text-align: left;
     margin-bottom: 25px;
 }
+
+/*link*/
+
+.link-objects a[href=""],.link-object a[href="#"] {
+    display: none;
+  }
+
+  .link-object{
+    width: calc(100% - 40px);
+    padding: 10px 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    display: inline-block;
+    text-align: left;
+  }
 
