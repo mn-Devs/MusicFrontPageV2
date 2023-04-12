@@ -52,7 +52,7 @@ const handlegetlink = (res) => {
         newDiv.appendChild(newItemtoken)
         newDiv.appendChild(newImage)
         newDiv.appendChild(newDelete)
-        newDiv.appendChild(newEdit)
+        //newDiv.appendChild(newEdit)
         document.getElementById("link-list").appendChild(newDiv);
     });
     const divs = document.querySelectorAll('.remove-link-btn');
