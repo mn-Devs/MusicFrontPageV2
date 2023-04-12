@@ -7,7 +7,7 @@ const getlink = (req) => {
     if (!auth(authentication).succes) {
         return {"error": "not authenticated"};
     } else {
-        const objects = mysql(`SELECT * FROM link;`);
+        const objects = mysql(`SELECT * FROM link WHERE fromuserid = ${auth(authentication).id};`);
 
         if (!objects) {
             return {"error": "no link found"};

@@ -3,98 +3,89 @@
 <body>
     <div class="wrapper-div"></div>
     <div class="inner-div" id="link-inner-div">
-    <h1 id="welcome"><%= linktitle %></h1>
-    <img id="cover-image" src="<%= image %>">
-    
+        <h1 id="musictitle"><%= linktitle %></h1>
+        <img id="cover-image" src="<%= image %>" />
 
- 
         <div class="link-objects">
             <a href="<%= youtube %>">
                 <div class="link-object">
-                    <img src="/assets/img/youtube.png" draggable="false">
-                    </div>
-                </a>
+                    <img src="/assets/img/youtube.png" draggable="false" />
+                </div>
+            </a>
 
-                <a href="<%= spotify %>">
-                    <div class="link-object">
-                        <img src="/assets/img/spotify.png" draggable="false">
+            <a href="<%= spotify %>">
+                <div class="link-object">
+                    <img src="/assets/img/spotify.png" draggable="false" />
+                </div>
+            </a>
 
-                        </div>
-                    </a>
+            <a href="<%= deezer %>">
+                <div class="link-object">
+                    <img src="/assets/img/deezer.png" draggable="false" />
+                </div>
+            </a>
 
-                    <a href="<%= deezer %>">
-                        <div class="link-object">
-                            <img src="/assets/img/deezer.png" draggable="false">
+            <a href="<%= itunes %>">
+                <div class="link-object">
+                    <img src="/assets/img/itunes.png" draggable="false" />
+                </div>
+            </a>
 
-                            </div>
-                        </a>
+            <a href="<%= soundcloud %>">
+                <div class="link-object">
+                    <img src="/assets/img/soundcloud.png" draggable="false" />
+                </div>
+            </a>
 
-                        <a href="<%= itunes %>">
-                            <div class="link-object">
-                                <img src="/assets/img/itunes.png" draggable="false">
+            <a href="<%= tidal %>">
+                <div class="link-object">
+                    <img src="/assets/img/tidal.png" draggable="false" />
+                </div>
+            </a>
 
-                                </div>
-                            </a>
+            <a href="<%= amazonmusic %>">
+                <div class="link-object">
+                    <img src="/assets/img/amazonmusic.png" draggable="false" />
+                </div>
+            </a>
 
-                            <a href="<%= soundcloud %>">
-                                <div class="link-object">
-                                    <img src="/assets/img/soundcloud.png" draggable="false">
+            <a href="<%= applemusic %>">
+                <div class="link-object">
+                    <img src="/assets/img/applemusic.png" draggable="false" />
+                </div>
+            </a>
 
-                                    </div>
-                                </a>
-
-                                <a href="<%= tidal %>">
-                                    <div class="link-object">
-                                        <img src="/assets/img/tidal.png" draggable="false">
-
-                                        </div>
-                                    </a>
-
-                                    <a href="<%= amazonmusic %>">
-                                        <div class="link-object">
-                                            <img src="/assets/img/amazonmusic.png" draggable="false">
-
-                                            </div>
-                                        </a>
-
-                                        <a href="<%= applemusic %>">
-                                            <div class="link-object">
-                                                <img src="/assets/img/applemusic.png" draggable="false">
-
-                                                </div>
-                                            </a>
-
-                                            <a href="<%= audius %>">
-                                                <div class="link-object">
-                                                    <img src="/assets/img/audius.png" draggable="false">
-
-                                                    </div>
-                                                </a>
-                                                            <a href="<%= beatport %>">
-                                                <div class="link-object">
-                                                    <img src="/assets/img/beatport.png" draggable="false">
-
-                                                    </div>
-                                                </a>
-                                                </div>
-    </div> 
+            <a href="<%= audius %>">
+                <div class="link-object">
+                    <img src="/assets/img/audius.png" draggable="false" />
+                </div>
+            </a>
+            <a href="<%= beatport %>">
+                <div class="link-object">
+                    <img src="/assets/img/beatport.png" draggable="false" />
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="inner-div" id="link-inner-div">
+        <p>
+            Made by <a href="https://mndevs.host">mn<b>Devs</b></a>
+        </p>
+    </div>
 </body>
 
-
 <style>
-
-   .wrapper-div{
-    filter: blur(20px);
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    z-index: -1;
-    background-image: url('<%= image %>');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-    scale: 1.2;
-
+    .wrapper-div {
+        filter: blur(20px);
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        z-index: -1;
+        background-image: url("<%= image %>");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        scale: 1.2;
     }
 </style>

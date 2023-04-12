@@ -137,36 +137,48 @@ header a{
 }
 
 /*link*/
-
+#musictitle{
+    text-align: center;
+    border-bottom: 2px solid black;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
 .link-objects a[href=""],.link-object a[href="#"] {
     display: none;
   }
-  
+  .link-objects{
+    width: calc(100% - 20px);
+    display: inline-block;
+    padding: 10px 0px;
+  }
   .link-object{
     width: calc(100% - 40px);
     padding: 10px 20px;
-    border: 1px solid black;
     border-radius: 5px;
     margin: 15px 0px;
     display: inline-block;
     text-align: left;
     background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   }
   .link-object img{
     display: block;
     margin: 0 auto;
     height: 30px;
+    
   }
 
 
   #cover-image{
     width: 50%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+
   }
 
   #link-inner-div{
     background-color: rgba(255, 255, 255, 0.2);
     padding: 10px;
-    border-radius: 25px;
   }
 
 
